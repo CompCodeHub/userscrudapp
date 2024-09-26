@@ -61,17 +61,16 @@ public class UserController {
 				.path("/{email}")
 				.buildAndExpand(savedUser.getEmail()).toUri();
 		// returning URI
-		
 		return ResponseEntity.created(location).build();
 	}
 	
 	
 	// To retrieve posts of User
-	@GetMapping("/{email}/posts")
-	public List<Post> retrievePosts(@PathVariable String email) {
-		User user = userService.getUser(email);
-		return user.getPosts();
-	}
+//	@GetMapping("/{email}/posts")
+//	public List<Post> retrievePosts(@PathVariable String email) {
+//		User user = userService.getUser(email);
+//		return user.getPosts();
+//	}
 	
 	@PostMapping("/{email}/posts")
 	public ResponseEntity<Post> createPost(@RequestBody Post post, @PathVariable String email) {
