@@ -51,16 +51,16 @@ public class UserController {
 		userService.deleteUser(email);
 	}
 
-	@DeleteMapping("/byName/{name}")
-	public ResponseEntity<?> deleteUserByName(@PathVariable String name) {
-		List<User> users = userService.getUsersByName(name);
-		if (users.size() > 1) {
-			return new ResponseEntity<>("Multiple users found with given name! Record cannot be deleted!",
-					HttpStatus.BAD_REQUEST);
-		}
-		userService.deleteUser(users.get(0).getEmail());
-		return new ResponseEntity<>("User deleted!", HttpStatus.OK);
-	}
+//	@DeleteMapping("/byName/{name}")
+//	public ResponseEntity<?> deleteUserByName(@PathVariable String name) {
+//		List<User> users = userService.getUsersByName(name);
+//		if (users.size() > 1) {
+//			return new ResponseEntity<>("Multiple users found with given name! Record cannot be deleted!",
+//					HttpStatus.BAD_REQUEST);
+//		}
+//		userService.deleteUser(users.get(0).getEmail());
+//		return new ResponseEntity<>("User deleted!", HttpStatus.OK);
+//	}
 
 	@PostMapping("")
 	public ResponseEntity<User> createUser(@Valid @RequestBody User user) {
